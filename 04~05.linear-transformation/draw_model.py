@@ -9,6 +9,22 @@ from math import *
 from transforms import *
 
 
+def matrix_multiply(a, b):
+    return tuple(
+        tuple(dot(row, col) for col in zip(*b))
+        for row in a
+    )
+
+
+def linear_combination(scalars, *vectors):
+    scaled = [scale(s, v) for s, v in zip(scalars, vectors)]
+    return add(*scaled)
+
+
+def multiply_matrix_vector(matrix, vector):
+    return linear_combination(vector, *zip(*matrix))
+
+
 def normal(face):
     return(cross(subtract(face[1], face[0]), subtract(face[2], face[0])))
 

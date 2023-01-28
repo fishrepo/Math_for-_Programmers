@@ -3,7 +3,7 @@ from math import pi
 
 # with open("teapot.off") as f:
 #     lines = f.readlines()
-with open("C:\\Math_for_Programmers\\04.linear-transformation\\teapot.off") as f:
+with open("C:\\Math_for_Programmers\\04~05.linear-transformation\\teapot.off") as f:
     lines = f.readlines()
 
 vertex_count, face_count, edge_count = map(int, lines[1].split())

@@ -56,6 +56,17 @@ def polygon_map(transformation, polygons):
         [transformation(vertex) for vertex in triangle]
         for triangle in polygons
     ]
+
+
+def get_rotation_matrix(t):
+    seconds = t/1000
+    return (
+        (cos(seconds), 0, -sin(seconds)),
+        (0, 1, 0),
+        (sin(seconds), 0, cos(seconds))
+    )
+
+
 # ========================================
 
 # draw_model(load_triangles())
@@ -87,4 +98,7 @@ def polygon_map(transformation, polygons):
 
 # ========================================
 
-draw_model(polygon_map(rotate_x_by(pi/2), load_triangles()))
+# draw_model(polygon_map(rotate_x_by(pi/2), load_triangles()))
+
+# =========================================
+draw_model(load_triangles(), get_matrix=get_rotation_matrix)
